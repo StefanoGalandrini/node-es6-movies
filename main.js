@@ -4,6 +4,14 @@ const dataArray = require('./data.js');
 // create class Movie
 class Movie
 {
+	/**
+	 * Creates an instance of Movie.
+	 * @param {string} title
+	 * @param {number} year
+	 * @param {string} genre
+	 * @param {number} rating
+	 * @param {string} type
+	 */
 	title;
 	year;
 	genre;
@@ -19,15 +27,24 @@ class Movie
 		this.type = type;
 	}
 
-	// method returning the title of the movie and/or tv series
+	/** method returning the title of the movie and/or tv series
+	 * @returns {string}
+	 */
 	toString()
 	{
 		return `${this.title} è un/una ${this.type} di genere ${this.genre}. È stato rilasciato nel ${this.year} ed ha un voto di ${this.rating}`;
 	}
 }
 
-// create class TvSeries that extends Movie 
-// and adds property "seasons";
+/** create class TvSeries that extends Movie 
+* and adds property "seasons";
+* @param {string} title
+* @param {number} year
+* @param {string} genre
+* @param {number} rating
+* @param {string} type
+* @param {number} seasons
+*/
 class TvSeries extends Movie
 {
 	seasons;
@@ -39,19 +56,25 @@ class TvSeries extends Movie
 	}
 }
 
-// create an array of instances of Movie and TvSeries
+/** create an array of instances of Movie and TvSeries
+ * @type {(Movie|TvSeries)[]}
+ */
 let instances = dataArray.map(item =>
 {
 	if (item.type === "movie")
 	{
-		return new Movie(item.title, item.year, item.genre, item.rating, item.type);
+		return new Movie(...Object.values(item));
 	} else
 	{
-		return new TvSeries(item.title, item.year, item.genre, item.rating, item.type, item.seasons);
+		return new TvSeries(...Object.values(item));
 	}
 });
 
-// create a function that returns the average rating of all movies
+/** create a function that returns the average rating of all movies
+ * @param {Movie[]} movies
+ * @param {string} genre
+ * @return {string}
+ */
 function averageRating(movies, genre)
 {
 	let filteredMovies = movies.filter(movie => movie.genre === genre);
@@ -59,7 +82,10 @@ function averageRating(movies, genre)
 	return (totalRating / filteredMovies.length).toFixed(2);
 }
 
-// create a function that returns an array of unique genres
+/** create a function that returns an array of unique genres
+* @param {Movie[]} movies
+* @return {string[]}
+*/
 function uniqueGenres(movies)
 {
 	let genres = movies.map(movie => movie.genre);
@@ -77,7 +103,11 @@ function uniqueGenres(movies)
 }
 
 
-// create a function that returns an array of movies filtered by genre
+/** create a function that returns an array of movies filtered by genre
+* @param {Movie[]} movies
+* @param {string} genre
+* @return {string[]}
+*/
 function filterMoviesByGenre(movies, genre)
 {
 	return movies.filter(movie => movie.genre === genre).map(movie => movie.toString());
