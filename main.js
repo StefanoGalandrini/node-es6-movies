@@ -92,10 +92,14 @@ genres.forEach(genre =>
 	let avgRating = averageRating(instances, genre);
 	console.log(`Il genere ${genre} ha una valutazione media di ${avgRating}`);
 });
+console.log("\n");
+
 
 
 // show the list of genres
 console.log("Elenco dei generi: " + genres.join(", "));
+console.log("\n");
+
 
 // show the list of movies by genre
 uniqueGenres(instances).forEach(g =>
@@ -106,4 +110,6 @@ uniqueGenres(instances).forEach(g =>
 	{
 		console.log(movie);
 	});
+	console.log();
 });
+console.log("\n");
