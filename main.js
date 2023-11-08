@@ -56,7 +56,7 @@ function averageRating(movies, genre)
 {
 	let filteredMovies = movies.filter(movie => movie.genre === genre);
 	let totalRating = filteredMovies.reduce((average, movie) => average + movie.rating, 0);
-	return totalRating / filteredMovies.length;
+	return (totalRating / filteredMovies.length).toFixed(2);
 }
 
 // create a function that returns an array of unique genres
@@ -76,8 +76,15 @@ function uniqueGenres(movies)
 	return uniqueGenres;
 }
 
-console.log(instances[1]);
-console.log(averageRating(instances, "Fantasy"));
-console.log(uniqueGenres(instances));
+// show the average rating of each genre
+let genres = uniqueGenres(instances);
+
+genres.forEach(genre =>
+{
+	let avgRating = averageRating(instances, genre);
+	console.log(`Il genere ${genre} ha una valutazione media di ${avgRating}`);
+});
+
+console.log("Elenco dei generi: " + genres.join(", "));
 
 
