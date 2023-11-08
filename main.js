@@ -135,7 +135,7 @@ console.log("\n");
 uniqueGenres(instances).forEach(g =>
 {
 	let moviesByGenre = filterMoviesByGenre(instances, g);
-	console.log(`Film del genere ${g}:`);
+	console.log(`Genere ${g}:`);
 	moviesByGenre.forEach(movie =>
 	{
 		console.log(movie);
