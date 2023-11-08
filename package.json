@@ -1,0 +1,22 @@
+{
+	"name": "node-es6-movies",
+	"version": "1.0.0",
+	"description": "This is a sample JavaScript app that showcases the use of ES6 features such as classes, inheritance, and more.",
+	"main": "main.js",
+	"scripts": {
+		"start": "nodemon main.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
+		"javascript",
+		"ES6",
+		"class",
+		"OOP"
+	],
+	"author": "Stefano Galandrini",
+	"license": "ISC",
+	"devDependencies": {
+		"dotenv": "^16.3.1",
+		"nodemon": "^3.0.1"
+	}
+}
