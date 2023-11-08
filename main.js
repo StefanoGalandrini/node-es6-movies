@@ -17,12 +17,12 @@ class Movie
 		this.genre = genre;
 		this.rating = rating;
 		this.type = type;
+	}
 
-		// method returning the title of the movie and/or tv series
-		toString();
-		{
-			return `${this.title} è un ${this.type} di genere ${this.genre}. È stato rilasciato nel ${this.year} ed ha un voto di ${this.rating}`;
-		}
+	// method returning the title of the movie and/or tv series
+	toString()
+	{
+		return `${this.title} è un/una ${this.type} di genere ${this.genre}. È stato rilasciato nel ${this.year} ed ha un voto di ${this.rating}`;
 	}
 }
 
@@ -76,6 +76,14 @@ function uniqueGenres(movies)
 	return uniqueGenres;
 }
 
+
+// create a function that returns an array of movies filtered by genre
+function filterMoviesByGenre(movies, genre)
+{
+	return movies.filter(movie => movie.genre === genre).map(movie => movie.toString());
+}
+
+
 // show the average rating of each genre
 let genres = uniqueGenres(instances);
 
@@ -85,6 +93,17 @@ genres.forEach(genre =>
 	console.log(`Il genere ${genre} ha una valutazione media di ${avgRating}`);
 });
 
+
+// show the list of genres
 console.log("Elenco dei generi: " + genres.join(", "));
 
-
+// show the list of movies by genre
+uniqueGenres(instances).forEach(g =>
+{
+	let moviesByGenre = filterMoviesByGenre(instances, g);
+	console.log(`Film del genere ${g}:`);
+	moviesByGenre.forEach(movie =>
+	{
+		console.log(movie);
+	});
+});

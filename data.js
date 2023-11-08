@@ -81,7 +81,7 @@ let dataArray = [
 		year: 2008,
 		genre: "Crimine",
 		rating: 9.5,
-		type: "tv",
+		type: "tv series",
 		seasons: 5
 	},
 	{
@@ -89,7 +89,7 @@ let dataArray = [
 		year: 2011,
 		genre: "Fantasy",
 		rating: 9.3,
-		type: "tv",
+		type: "tv series",
 		seasons: 8
 	},
 	{
@@ -97,7 +97,7 @@ let dataArray = [
 		year: 2016,
 		genre: "Fantascienza",
 		rating: 8.7,
-		type: "tv",
+		type: "tv series",
 		seasons: 3
 	},
 	{
@@ -105,7 +105,7 @@ let dataArray = [
 		year: 1993,
 		genre: "Commedia",
 		rating: 6.9,
-		type: "tv",
+		type: "tv series",
 		seasons: 6
 	},
 	{
@@ -113,7 +113,7 @@ let dataArray = [
 		year: 2001,
 		genre: "Commedia",
 		rating: 8.4,
-		type: "tv",
+		type: "tv series",
 		seasons: 9
 	},
 	{
@@ -121,7 +121,7 @@ let dataArray = [
 		year: 1998,
 		genre: "Commedia",
 		rating: 7.2,
-		type: "tv",
+		type: "tv series",
 		seasons: 11
 	},
 	{
@@ -129,7 +129,7 @@ let dataArray = [
 		year: 1994,
 		genre: "Commedia",
 		rating: 8.9,
-		type: "tv",
+		type: "tv series",
 		seasons: 10
 	},
 	{
@@ -137,7 +137,7 @@ let dataArray = [
 		year: 1999,
 		genre: "Fantascienza",
 		rating: 8.5,
-		type: "tv",
+		type: "tv series",
 		seasons: 7
 	},
 	{
@@ -145,7 +145,7 @@ let dataArray = [
 		year: 2007,
 		genre: "Commedia",
 		rating: 8.1,
-		type: "tv",
+		type: "tv series",
 		seasons: 12
 	},
 	{
@@ -153,7 +153,7 @@ let dataArray = [
 		year: 2019,
 		genre: "Fantasy",
 		rating: 8.2,
-		type: "tv",
+		type: "tv series",
 		seasons: 2
 	},
 ];
