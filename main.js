@@ -32,7 +32,7 @@ class Movie
 	 */
 	toString()
 	{
-		return `${this.title} è un/una ${this.type} di genere ${this.genre}. È stato rilasciato nel ${this.year} ed ha un voto di ${this.rating}`;
+		return `${this.title} è un ${this.type} di genere ${this.genre}. È stato rilasciato nel ${this.year} ed ha un voto di ${this.rating}`;
 	}
 }
 
@@ -54,6 +54,15 @@ class TvSeries extends Movie
 		super(title, year, genre, rating, type);
 		this.seasons = seasons;
 	}
+
+	/** method returning the title of the movie and/or tv series
+	 * @override
+	 * @returns {string}
+	 */
+	toString()
+	{
+		return `${this.title} è una ${this.type} di genere ${this.genre}. La prima stagione è stata rilasciata nel ${this.year} ed in totale sono state prodotte ${this.seasons} stagioni. Ha un voto di ${this.rating}`;
+	}
 }
 
 /** create an array of instances of Movie and TvSeries
@@ -63,10 +72,10 @@ let instances = dataArray.map(item =>
 {
 	if (item.type === "movie")
 	{
-		return new Movie(...Object.values(item));
+		return new Movie(item.title, item.year, item.genre, item.rating, item.type);
 	} else
 	{
-		return new TvSeries(...Object.values(item));
+		return new TvSeries(item.title, item.year, item.genre, item.rating, item.type, item.seasons);
 	}
 });
 
@@ -77,7 +86,7 @@ let instances = dataArray.map(item =>
  */
 function averageRating(movies, genre)
 {
-	let filteredMovies = movies.filter(movie => movie.genre === genre);
+	let filteredMovies = movies.filter(movie => movie.genre.toLowerCase() === genre.toLocaleLowerCase());
 	let totalRating = filteredMovies.reduce((average, movie) => average + movie.rating, 0);
 	return (totalRating / filteredMovies.length).toFixed(2);
 }
@@ -89,15 +98,7 @@ function averageRating(movies, genre)
 function uniqueGenres(movies)
 {
 	let genres = movies.map(movie => movie.genre);
-	let uniqueGenres = [];
-
-	for (let i = 0; i < genres.length; i++)
-	{
-		if (uniqueGenres.indexOf(genres[i]) === -1)
-		{
-			uniqueGenres.push(genres[i]);
-		}
-	}
+	const uniqueGenres = [...new Set(genres)];
 
 	return uniqueGenres;
 }
